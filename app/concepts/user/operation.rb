@@ -1,20 +1,14 @@
 require "bcrypt"
-require "reform/form/validation/unique_validator.rb"
 
 class User < ActiveRecord::Base
   class Create < Trailblazer::Operation
     include Model; model User, :Create
 
-    contract do
-      property :email
-      property :password, virtual: true
-
-      validates :email, presence: true, email: true, unique: true
-      validates :password, presence: true
-    end
+    contract User::Contract::Create
 
     def process(params)
       validate(params[:user]) do |f|
+        generate_digest
         f.save
       end
     end
@@ -22,5 +16,4 @@ class User < ActiveRecord::Base
     def generate_digest
       model.password_digest = BCrypt::Password.create(contract.password)
     end
-  end
 end
