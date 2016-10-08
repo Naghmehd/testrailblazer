@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
     def process(params)
       validate(params[:user]) do |f|
         f.save
+      end
     end
 
     def generate_digest
