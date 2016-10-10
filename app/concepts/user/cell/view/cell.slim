@@ -1,0 +1,16 @@
+- if form.errors.any?
+  ul
+  - form.errors.full_messages.each do |msg|
+    li = msg
+= form_for form, html: {class: "registration-form"}, url: join_url do |f|
+  div
+    = f.label :email, class: "qa-email-label"
+    = f.text_field :email, class: "qa-email-input"
+  div
+    = f.label :username, class: "qa-username-label"
+    = f.text_field :username, class: "qa-username-input"
+  div
+    = f.label :password, class: "qa-password-label"
+    = f.password_field :password, class: "qa-password-input"
+  div
+    = f.submit "Register", class: "qa-submit"

@@ -12,7 +12,7 @@ module User::Contract
 end
 
   class Create < Base
-    validates :email, presence: true
+    validates :email,    presence: true
     validates :password, presence: true
   end
 

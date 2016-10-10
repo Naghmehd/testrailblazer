@@ -29,7 +29,7 @@ gem "reform", "~> 2.2.1"
 gem "cells-slim"
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -40,6 +40,9 @@ gem "cells-slim"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem "faker"
+  gem "factory_girl_rails"
+  gem "minitest-rails-capybara"
 end
 
 group :development do
